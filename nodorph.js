@@ -10,25 +10,23 @@ function findAndReplace() {
     });
 
 setInterval(function(){
-    for(let i = 0; i< document.images.length; i++) {
-        let imageLocation = document.images[i].src;
-        let imageAlt = document.images[i].alt;
+        for(let i = 0; i< document.images.length; i++) {
+            let imageLocation = document.images[i].src;
+            let imageAlt = document.images[i].alt;
 
-        let imageWidth = document.images[i].width;
-        let imageHeight = document.images[i].height;
+            let imageWidth = document.images[i].width;
+            let imageHeight = document.images[i].height;
 
-        let newImageSrc = 'https://placekitten.com/g/' + imageWidth + '/' + imageHeight;
+            let newImageSrc = 'https://placekitten.com/g/' + imageWidth + '/' + imageHeight;
 
-        let closestPictureElement = document.images[i].closest('picture');
+            let closestPictureElement = document.images[i].closest('picture');
 
-        if (imageLocation.toLowerCase().includes('dorph') || imageAlt.toLowerCase().includes('dorph')) {
-            document.images[i].src = newImageSrc;
-            document.images[i].srcset = newImageSrc;
-
-            console.log('hej:' + imageLocation)
+            if (imageLocation.toLowerCase().includes('dorph') || imageAlt.toLowerCase().includes('dorph')) {
+                document.images[i].src = newImageSrc;
+                document.images[i].srcset = newImageSrc;
+            }
         }
-    }
-}, 2000);
+    }, 2000);
 }
 
 function noDorph (node) {
